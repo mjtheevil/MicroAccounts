@@ -33,8 +33,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvancedDataGridView, Version=0.1.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ADGV.0.1.0.10\lib\net40\AdvancedDataGridView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Emgu.CV">
+      <HintPath>C:\Users\Sonih\Downloads\CameraCapture\CameraCapture\CameraCapture\Emgu.CV.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.GPU">
+      <HintPath>C:\Users\Sonih\Downloads\CameraCapture\CameraCapture\CameraCapture\Emgu.CV.GPU.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.ML">
+      <HintPath>C:\Users\Sonih\Downloads\CameraCapture\CameraCapture\CameraCapture\Emgu.CV.ML.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>C:\Users\Sonih\Downloads\CameraCapture\CameraCapture\CameraCapture\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.Util">
+      <HintPath>C:\Users\Sonih\Downloads\CameraCapture\CameraCapture\CameraCapture\Emgu.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,25 +80,212 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dasboard.cs">
+    <Compile Include="ConvertNoToWord.cs" />
+    <Compile Include="Data\tbl_AccGroup.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_AccLedger.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_CategoryMaster.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_ItemMaster.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_LedgerDetails.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_PurchaseDetail.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_PurchaseMaster.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_StockItemDetails.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_UserLogiln.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_UserProfile.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccountLedger.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dasboard.Designer.cs">
-      <DependentUpon>Dasboard.cs</DependentUpon>
+    <Compile Include="Forms\AccountLedger.Designer.cs">
+      <DependentUpon>AccountLedger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Introduction.cs">
+    <Compile Include="Forms\AddCustomerAndSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCustomerAndSupplier.Designer.cs">
+      <DependentUpon>AddCustomerAndSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MicroAccounts.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MicroAccounts.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MicroAccounts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MicroAccounts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MicroAccounts.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EncryptionDecription.cs" />
+    <Compile Include="Forms\Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Item.Designer.cs">
+      <DependentUpon>Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ItemCategoryMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ItemCategoryMaster.Designer.cs">
+      <DependentUpon>ItemCategoryMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Group.Designer.cs">
+      <DependentUpon>Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PurchaseMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PurchaseMaster.Designer.cs">
+      <DependentUpon>PurchaseMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccountGroup.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Introduction.Designer.cs">
-      <DependentUpon>Introduction.cs</DependentUpon>
+    <Compile Include="UserControls\AccountGroup.Designer.cs">
+      <DependentUpon>AccountGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CustomerDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CustomerDetails.Designer.cs">
+      <DependentUpon>CustomerDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DashBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FirstCustomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FirstCustomControl.Designer.cs">
+      <DependentUpon>FirstCustomControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainDashboard.Designer.cs">
+      <DependentUpon>MainDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MySecondCustomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MySecondCustomControl.Designer.cs">
+      <DependentUpon>MySecondCustomControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Dasboard.resx">
-      <DependentUpon>Dasboard.cs</DependentUpon>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NewUserRegistration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\NewUserRegistration.Designer.cs">
+      <DependentUpon>NewUserRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PurchaseDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PurchaseDetails.Designer.cs">
+      <DependentUpon>PurchaseDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StockInventoryDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StockInventoryDetails.Designer.cs">
+      <DependentUpon>StockInventoryDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SupplierDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SupplierDetails.Designer.cs">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AccGroupVM.cs" />
+    <Compile Include="ViewModel\AccLedgerVm.cs" />
+    <Compile Include="ViewModel\CategoryMasterVM.cs" />
+    <Compile Include="ViewModel\ItemMasterVM.cs" />
+    <Compile Include="ViewModel\LedgerAutoCompleteClass.cs" />
+    <Compile Include="ViewModel\LedgerDetailsVM.cs" />
+    <Compile Include="ViewModel\PurchaseDetailsVM.cs" />
+    <Compile Include="ViewModel\PurchaseMasterVM.cs" />
+    <Compile Include="ViewModel\StockItemDetailsVM.cs" />
+    <Compile Include="ViewModel\UserLoginVM.cs" />
+    <Compile Include="ViewModel\UserProfileVM.cs" />
+    <EmbeddedResource Include="Forms\AccountLedger.resx">
+      <DependentUpon>AccountLedger.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Introduction.resx">
-      <DependentUpon>Introduction.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddCustomerAndSupplier.resx">
+      <DependentUpon>AddCustomerAndSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Item.resx">
+      <DependentUpon>Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ItemCategoryMaster.resx">
+      <DependentUpon>ItemCategoryMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Group.resx">
+      <DependentUpon>Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PurchaseMaster.resx">
+      <DependentUpon>PurchaseMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AccountGroup.resx">
+      <DependentUpon>AccountGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CustomerDetails.resx">
+      <DependentUpon>CustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FirstCustomControl.resx">
+      <DependentUpon>FirstCustomControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainDashboard.resx">
+      <DependentUpon>MainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MySecondCustomControl.resx">
+      <DependentUpon>MySecondCustomControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -76,6 +297,29 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\NewUserRegistration.resx">
+      <DependentUpon>NewUserRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PurchaseDetails.resx">
+      <DependentUpon>PurchaseDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StockInventoryDetails.resx">
+      <DependentUpon>StockInventoryDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SupplierDetails.resx">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Data\MicroAccounts.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MicroAccounts.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\MicroAccounts.edmx.diagram">
+      <DependentUpon>MicroAccounts.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,6 +335,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\il_570xN.1441337834_mvp3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loader-1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_username_login_1172579.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\MicroAccounts.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MicroAccounts.edmx</DependentUpon>
+      <LastGenOutput>MicroAccounts.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\MicroAccounts.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MicroAccounts.edmx</DependentUpon>
+      <LastGenOutput>MicroAccounts.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\search_small_search_659160.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\download %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

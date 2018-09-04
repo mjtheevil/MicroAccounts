@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace MicroAccounts
 {
-    public partial class Introduction : UserControl
+    public partial class MySecondCustomControl : UserControl
     {
-        public Introduction()
+        public MySecondCustomControl()
         {
             InitializeComponent();
-        }
-
-        private void Introduction_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
         }
     }
 }
