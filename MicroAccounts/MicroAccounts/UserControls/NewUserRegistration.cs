@@ -285,8 +285,8 @@ namespace MicroAccounts.UserControls
                 model.mobile = item.mobile;
                 model.email = item.email;
                 model.userId = item.userId;
-                model.createdDate = item.createdDate;
-                model.updateDate = item.updateDate;
+                model.createdDate = Convert.ToDateTime(item.createdDate).ToString("dd-MM-yyyy  hh:mm tt");
+                model.updateDate = Convert.ToDateTime(item.updateDate).ToString("dd-MM-yyyy  hh:mm tt");
 
                 modelList.Add(model);
                 rowNo++;

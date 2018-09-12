@@ -58,13 +58,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dgRegisteredUser = new System.Windows.Forms.DataGridView();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.txtMobileNo = new System.Windows.Forms.TextBox();
-            this.hiddenUID = new System.Windows.Forms.Label();
-            this.txtConfirmPass = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.SrNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +67,13 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtMobileNo = new System.Windows.Forms.TextBox();
+            this.hiddenUID = new System.Windows.Forms.Label();
+            this.txtConfirmPass = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.SidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -225,7 +225,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Goldenrod;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(5, 34);
             this.panel1.TabIndex = 24;
@@ -385,81 +385,6 @@
             this.dgRegisteredUser.Click += new System.EventHandler(this.dgRegisteredUser_Click);
             this.dgRegisteredUser.DoubleClick += new System.EventHandler(this.dgRegisteredUser_DoubleClick);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.label14.Location = new System.Drawing.Point(23, 109);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(97, 20);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "User Name: ";
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.txtUserName.Location = new System.Drawing.Point(189, 106);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(843, 26);
-            this.txtUserName.TabIndex = 3;
-            this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
-            this.txtUserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUserName_KeyDown);
-            // 
-            // txtMobileNo
-            // 
-            this.txtMobileNo.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.txtMobileNo.Location = new System.Drawing.Point(189, 158);
-            this.txtMobileNo.MaxLength = 13;
-            this.txtMobileNo.Name = "txtMobileNo";
-            this.txtMobileNo.Size = new System.Drawing.Size(843, 26);
-            this.txtMobileNo.TabIndex = 4;
-            this.txtMobileNo.Enter += new System.EventHandler(this.txtMobileNo_Enter);
-            this.txtMobileNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMobileNo_KeyDown);
-            // 
-            // hiddenUID
-            // 
-            this.hiddenUID.AutoSize = true;
-            this.hiddenUID.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.hiddenUID.Location = new System.Drawing.Point(55, 294);
-            this.hiddenUID.Name = "hiddenUID";
-            this.hiddenUID.Size = new System.Drawing.Size(48, 20);
-            this.hiddenUID.TabIndex = 31;
-            this.hiddenUID.Text = "UID : ";
-            this.hiddenUID.Visible = false;
-            // 
-            // txtConfirmPass
-            // 
-            this.txtConfirmPass.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.txtConfirmPass.Location = new System.Drawing.Point(189, 259);
-            this.txtConfirmPass.MaxLength = 13;
-            this.txtConfirmPass.Name = "txtConfirmPass";
-            this.txtConfirmPass.PasswordChar = '*';
-            this.txtConfirmPass.Size = new System.Drawing.Size(843, 26);
-            this.txtConfirmPass.TabIndex = 6;
-            this.txtConfirmPass.Enter += new System.EventHandler(this.txtConfirmPass_Enter);
-            this.txtConfirmPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConfirmPass_KeyDown);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(28, 583);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(270, 17);
-            this.label15.TabIndex = 43;
-            this.label15.Text = "* Note : Double-Click on any one row to EDIT.";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewImageColumn1.HeaderText = "Action";
-            this.dataGridViewImageColumn1.Image = global::MicroAccounts.Properties.Resources.delete;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.ToolTipText = "Delete";
-            // 
             // SrNo
             // 
             this.SrNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -536,6 +461,81 @@
             this.Delete.ReadOnly = true;
             this.Delete.ToolTipText = "Delete";
             this.Delete.Width = 43;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.label14.Location = new System.Drawing.Point(23, 109);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(97, 20);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "User Name: ";
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtUserName.Location = new System.Drawing.Point(189, 106);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(843, 26);
+            this.txtUserName.TabIndex = 3;
+            this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
+            this.txtUserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUserName_KeyDown);
+            // 
+            // txtMobileNo
+            // 
+            this.txtMobileNo.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtMobileNo.Location = new System.Drawing.Point(189, 158);
+            this.txtMobileNo.MaxLength = 13;
+            this.txtMobileNo.Name = "txtMobileNo";
+            this.txtMobileNo.Size = new System.Drawing.Size(843, 26);
+            this.txtMobileNo.TabIndex = 4;
+            this.txtMobileNo.Enter += new System.EventHandler(this.txtMobileNo_Enter);
+            this.txtMobileNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMobileNo_KeyDown);
+            // 
+            // hiddenUID
+            // 
+            this.hiddenUID.AutoSize = true;
+            this.hiddenUID.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.hiddenUID.Location = new System.Drawing.Point(55, 294);
+            this.hiddenUID.Name = "hiddenUID";
+            this.hiddenUID.Size = new System.Drawing.Size(48, 20);
+            this.hiddenUID.TabIndex = 31;
+            this.hiddenUID.Text = "UID : ";
+            this.hiddenUID.Visible = false;
+            // 
+            // txtConfirmPass
+            // 
+            this.txtConfirmPass.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtConfirmPass.Location = new System.Drawing.Point(189, 259);
+            this.txtConfirmPass.MaxLength = 13;
+            this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.PasswordChar = '*';
+            this.txtConfirmPass.Size = new System.Drawing.Size(843, 26);
+            this.txtConfirmPass.TabIndex = 6;
+            this.txtConfirmPass.Enter += new System.EventHandler(this.txtConfirmPass_Enter);
+            this.txtConfirmPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConfirmPass_KeyDown);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(28, 583);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(270, 17);
+            this.label15.TabIndex = 43;
+            this.label15.Text = "* Note : Double-Click on any one row to EDIT.";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewImageColumn1.HeaderText = "Action";
+            this.dataGridViewImageColumn1.Image = global::MicroAccounts.Properties.Resources.delete;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.ToolTipText = "Delete";
             // 
             // NewUserRegistration
             // 

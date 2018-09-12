@@ -80,6 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountsModuleClasses\CrDrDifference.cs" />
+    <Compile Include="AccountsModuleClasses\TransactionEntryClass.cs" />
     <Compile Include="ConvertNoToWord.cs" />
     <Compile Include="Data\tbl_AccGroup.cs">
       <DependentUpon>MicroAccounts.tt</DependentUpon>
@@ -88,6 +90,12 @@
       <DependentUpon>MicroAccounts.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\tbl_CategoryMaster.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_Entry.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_EntryDetails.cs">
       <DependentUpon>MicroAccounts.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\tbl_ItemMaster.cs">
@@ -102,7 +110,16 @@
     <Compile Include="Data\tbl_PurchaseMaster.cs">
       <DependentUpon>MicroAccounts.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\tbl_SalesDetails.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_SalesMaster.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\tbl_StockItemDetails.cs">
+      <DependentUpon>MicroAccounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_TransactionMaster.cs">
       <DependentUpon>MicroAccounts.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\tbl_UserLogiln.cs">
@@ -157,11 +174,23 @@
     <Compile Include="Forms\Group.Designer.cs">
       <DependentUpon>Group.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PaymentReceiptBillReference.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PaymentReceiptBillReference.Designer.cs">
+      <DependentUpon>PaymentReceiptBillReference.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PurchaseMaster.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\PurchaseMaster.Designer.cs">
       <DependentUpon>PurchaseMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SalesMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SalesMaster.Designer.cs">
+      <DependentUpon>SalesMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AccountGroup.cs">
       <SubType>UserControl</SubType>
@@ -199,6 +228,12 @@
     <Compile Include="Forms\MainDashboard.Designer.cs">
       <DependentUpon>MainDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LedgerDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LedgerDetails.Designer.cs">
+      <DependentUpon>LedgerDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MySecondCustomControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -219,11 +254,23 @@
     <Compile Include="UserControls\NewUserRegistration.Designer.cs">
       <DependentUpon>NewUserRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PurchaseDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\PurchaseDetails.Designer.cs">
       <DependentUpon>PurchaseDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SalesDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SalesDetails.Designer.cs">
+      <DependentUpon>SalesDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\StockInventoryDetails.cs">
       <SubType>UserControl</SubType>
@@ -243,9 +290,14 @@
     <Compile Include="ViewModel\ItemMasterVM.cs" />
     <Compile Include="ViewModel\LedgerAutoCompleteClass.cs" />
     <Compile Include="ViewModel\LedgerDetailsVM.cs" />
+    <Compile Include="ViewModel\EntryDetailsVM.cs" />
+    <Compile Include="ViewModel\EntryVM.cs" />
     <Compile Include="ViewModel\PurchaseDetailsVM.cs" />
     <Compile Include="ViewModel\PurchaseMasterVM.cs" />
+    <Compile Include="ViewModel\SalesDetailsVM.cs" />
+    <Compile Include="ViewModel\SalesMasterVM.cs" />
     <Compile Include="ViewModel\StockItemDetailsVM.cs" />
+    <Compile Include="ViewModel\TransactionVM.cs" />
     <Compile Include="ViewModel\UserLoginVM.cs" />
     <Compile Include="ViewModel\UserProfileVM.cs" />
     <EmbeddedResource Include="Forms\AccountLedger.resx">
@@ -263,8 +315,14 @@
     <EmbeddedResource Include="Forms\Group.resx">
       <DependentUpon>Group.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PaymentReceiptBillReference.resx">
+      <DependentUpon>PaymentReceiptBillReference.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PurchaseMaster.resx">
       <DependentUpon>PurchaseMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SalesMaster.resx">
+      <DependentUpon>SalesMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AccountGroup.resx">
       <DependentUpon>AccountGroup.cs</DependentUpon>
@@ -283,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainDashboard.resx">
       <DependentUpon>MainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\LedgerDetails.resx">
+      <DependentUpon>LedgerDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MySecondCustomControl.resx">
       <DependentUpon>MySecondCustomControl.cs</DependentUpon>
@@ -303,8 +364,14 @@
     <EmbeddedResource Include="UserControls\NewUserRegistration.resx">
       <DependentUpon>NewUserRegistration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PurchaseDetails.resx">
       <DependentUpon>PurchaseDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SalesDetails.resx">
+      <DependentUpon>SalesDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StockInventoryDetails.resx">
       <DependentUpon>StockInventoryDetails.cs</DependentUpon>

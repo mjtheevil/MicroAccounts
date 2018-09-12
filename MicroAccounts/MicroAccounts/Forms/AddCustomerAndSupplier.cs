@@ -21,5 +21,10 @@ namespace MicroAccounts
         {
 
         }
+
+        private void txtGroupName_KeyDown(object sender, KeyEventArgs e)
+        {
+             
+        }
     }
 }
