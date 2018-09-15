@@ -46,11 +46,22 @@ namespace MicroAccounts.UserControls
                     model.Id = item.Id;
                     model.ledgerName = item.ledgerName;
                     model.groupName = _entities.tbl_AccGroup.Where(x => x.groupId == item.groupId).FirstOrDefault().groupName;
-                    model.opBalanceDC = item.opBalance + " " + item.opBalanceDC;
 
-                    model.createdDate = Convert.ToDateTime(item.createdDate).ToString("dd-MM-yyyy  hh:mm tt");
-                
-                    if (model.updateDate == null)
+                    if (item.opBalanceDC == "D")
+                    {
+                        model.opBalanceDC = "Dr " + item.opBalance;
+                    }
+                    else
+                    {
+                        model.opBalanceDC = "Cr " + item.opBalance;
+                    }
+
+                    if (item.createdDate == null)
+                        model.createdDate = "--";
+                    else
+                        model.createdDate = Convert.ToDateTime(item.createdDate).ToString("dd-MM-yyyy  hh:mm tt");
+
+                    if (item.updatedDate == null)
                         model.updateDate = "--";
                     else
                         model.updateDate = Convert.ToDateTime(item.updatedDate).ToString("dd-MM-yyyy  hh:mm tt");
@@ -77,27 +88,34 @@ namespace MicroAccounts.UserControls
 
         private void dgLedgerDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgLedgerDetails.Columns[e.ColumnIndex].Name == "Delete")
+            try
             {
-                DialogResult myResult;
-                myResult = MessageBox.Show("Are you really delete the item?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (myResult == DialogResult.OK)
+                if (dgLedgerDetails.Columns[e.ColumnIndex].Name == "Delete")
                 {
-                    _entities = new MicroAccountsEntities1();
+                    DialogResult myResult;
+                    myResult = MessageBox.Show("Are you really delete the item?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (myResult == DialogResult.OK)
+                    {
+                        _entities = new MicroAccountsEntities1();
 
-                    var cellId = Convert.ToInt32(dgLedgerDetails.CurrentRow.Cells[0].Value);
+                        var cellId = Convert.ToInt32(dgLedgerDetails.CurrentRow.Cells[0].Value);
 
-                    var selectedData1 = _entities.tbl_LedgerDetails.Where(x => x.ledgerId== cellId).FirstOrDefault();
-                    var selectedData2 = _entities.tbl_AccLedger.Where(x => x.Id== cellId).FirstOrDefault();
+                        var selectedData1 = _entities.tbl_LedgerDetails.Where(x => x.ledgerId == cellId).FirstOrDefault();
+                        var selectedData2 = _entities.tbl_AccLedger.Where(x => x.Id == cellId).FirstOrDefault();
 
-                    _entities.tbl_LedgerDetails.Remove(selectedData1);
-                    _entities.tbl_AccLedger.Remove(selectedData2);
+                        _entities.tbl_LedgerDetails.Remove(selectedData1);
+                        _entities.tbl_AccLedger.Remove(selectedData2);
 
-                    _entities.SaveChanges();
-                    MessageBox.Show("Record deleted ");
-                    dataGridBind();
+                        _entities.SaveChanges();
+                        MessageBox.Show("Record deleted ");
+                        dataGridBind();
+                    }
+
                 }
-
+            }
+            catch(Exception x)
+            {
+                MessageBox.Show("Record Cannot be deleted. Reference of this record is present in other entries");
             }
         }
 
@@ -109,7 +127,7 @@ namespace MicroAccounts.UserControls
                 {
                     var lID = Convert.ToInt32(dgLedgerDetails.CurrentRow.Cells[0].Value);
 
-                    AccountLedger acc = new AccountLedger(lID,"");
+                    AccountLedger acc = new AccountLedger(lID, "");
                     acc.ShowDialog();
                     dataGridBind();
                 }

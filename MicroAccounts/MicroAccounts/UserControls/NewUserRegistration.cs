@@ -293,6 +293,7 @@ namespace MicroAccounts.UserControls
             }
 
             dgRegisteredUser.DataSource = modelList;
+           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

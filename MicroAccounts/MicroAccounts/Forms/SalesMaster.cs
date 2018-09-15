@@ -398,7 +398,10 @@ namespace MicroAccounts.Forms
                         tbl_SalesMaster salesData = new tbl_SalesMaster();
                         salesData.billNo = txtBillNo.Text.Trim().ToString();
                         salesData.ledgerId = _entities.tbl_AccLedger.Where(x => x.ledgerName == txtLedgerName.Text.Trim().ToString()).FirstOrDefault().Id;
-                        salesData.date = Convert.ToDateTime(dateTimePicker1.Text).Date;
+
+                        DateTime date = DateTime.ParseExact(dateTimePicker1.Text, "dd-MM-yyyy", null);
+
+                        salesData.date = Convert.ToDateTime(date);
                         salesData.totalWeight = Convert.ToDecimal(txtTotalWeight.Text);
                         salesData.unit = lblUnit.Text;
                         salesData.totalKarat = Convert.ToDecimal(txtTotalKarat.Text);
@@ -430,7 +433,11 @@ namespace MicroAccounts.Forms
 
                         salesDataUpdate.billNo = txtBillNo.Text.Trim().ToString();
                         salesDataUpdate.ledgerId = _entities.tbl_AccLedger.Where(x => x.ledgerName == txtLedgerName.Text.Trim().ToString()).FirstOrDefault().Id;
-                        salesDataUpdate.date = Convert.ToDateTime(dateTimePicker1.Text).Date;
+
+                        DateTime date = DateTime.ParseExact(dateTimePicker1.Text, "dd-MM-yyyy", null);
+
+                        salesDataUpdate.date = Convert.ToDateTime(date);
+
                         salesDataUpdate.totalWeight = Convert.ToDecimal(txtTotalWeight.Text);
                         salesDataUpdate.unit = lblUnit.Text;
                         salesDataUpdate.totalKarat = Convert.ToDecimal(txtTotalKarat.Text);

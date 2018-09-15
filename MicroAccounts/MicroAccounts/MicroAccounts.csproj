@@ -64,6 +64,9 @@
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\..\BKP\demo\TawaTadakIceCream\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -82,7 +85,11 @@
   <ItemGroup>
     <Compile Include="AccountsModuleClasses\CrDrDifference.cs" />
     <Compile Include="AccountsModuleClasses\TransactionEntryClass.cs" />
-    <Compile Include="ConvertNoToWord.cs" />
+    <Compile Include="App_Code\Acc_list.cs" />
+    <Compile Include="App_Code\closing_balance.cs" />
+    <Compile Include="App_Code\ConvertNoToWord.cs" />
+    <Compile Include="App_Code\DummyList.cs" />
+    <Compile Include="App_Code\toCurrency.cs" />
     <Compile Include="Data\tbl_AccGroup.cs">
       <DependentUpon>MicroAccounts.tt</DependentUpon>
     </Compile>
@@ -155,7 +162,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MicroAccounts.edmx</DependentUpon>
     </Compile>
-    <Compile Include="EncryptionDecription.cs" />
+    <Compile Include="App_Code\EncryptionDecription.cs" />
     <Compile Include="Forms\Item.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +204,12 @@
     </Compile>
     <Compile Include="UserControls\AccountGroup.Designer.cs">
       <DependentUpon>AccountGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BalanceSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\BalanceSheet.Designer.cs">
+      <DependentUpon>BalanceSheet.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\CustomerDetails.cs">
       <SubType>UserControl</SubType>
@@ -327,6 +340,9 @@
     <EmbeddedResource Include="UserControls\AccountGroup.resx">
       <DependentUpon>AccountGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\BalanceSheet.resx">
+      <DependentUpon>BalanceSheet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CustomerDetails.resx">
       <DependentUpon>CustomerDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,6 +351,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FirstCustomControl.resx">
       <DependentUpon>FirstCustomControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
