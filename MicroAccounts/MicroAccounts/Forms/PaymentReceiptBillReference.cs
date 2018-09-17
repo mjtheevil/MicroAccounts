@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MicroAccounts.Data;
 using MicroAccounts.ViewModel;
+using MicroAccounts.AccountsModuleClasses;
 
 namespace MicroAccounts.Forms
 {
@@ -225,6 +226,7 @@ namespace MicroAccounts.Forms
                     }
                     else
                     {
+                        AmtFormatting amtFormat = new AmtFormatting();
 
                         comestoUpdate = true;
                         cmbRefType.SelectedIndex = 1;
@@ -253,7 +255,7 @@ namespace MicroAccounts.Forms
                               "#",
                                 billNo.refNo,
                                billNo.date,
-                                item.amtPaid,
+                               amtFormat.comma(item.amtPaid),
                                 item.pDetailsId
                                 );
 
@@ -261,8 +263,7 @@ namespace MicroAccounts.Forms
                         }
                         datagridId = data.Count;
                         lblRows.Text = datagridId.ToString() + " Rows";
-
-
+                         
                     }
 
 
@@ -472,7 +473,7 @@ namespace MicroAccounts.Forms
 
                                 #endregion
                             }
-                            else if(passedVoucherType==2)
+                            else if (passedVoucherType == 2)
                             {
                                 #region for Sales(Receipt)
 

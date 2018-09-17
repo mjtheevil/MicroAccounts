@@ -25,6 +25,7 @@ namespace MicroAccounts.ViewModel
         public string createdDate { get; set; }
         public string updateDate { get; set; }
 
+        public string monthYear { get; set; }
         public virtual AccLedgerVm tbl_AccLedger { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SalesDetailsVM> tbl_SalesDetails { get; set; }

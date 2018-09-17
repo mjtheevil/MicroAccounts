@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,6 +74,8 @@
             this.txtConfirmPass = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblTotalRows = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.SidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -350,7 +351,7 @@
             this.dgRegisteredUser.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -369,7 +370,7 @@
             this.Delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SkyBlue;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -380,14 +381,6 @@
             this.dgRegisteredUser.Location = new System.Drawing.Point(29, 397);
             this.dgRegisteredUser.Name = "dgRegisteredUser";
             this.dgRegisteredUser.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgRegisteredUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgRegisteredUser.Size = new System.Drawing.Size(1005, 183);
             this.dgRegisteredUser.TabIndex = 30;
             this.dgRegisteredUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -469,7 +462,7 @@
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             this.Delete.ToolTipText = "Delete";
-            this.Delete.Width = 52;
+            this.Delete.Width = 43;
             // 
             // label14
             // 
@@ -546,10 +539,32 @@
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.ToolTipText = "Delete";
             // 
+            // lblTotalRows
+            // 
+            this.lblTotalRows.AutoSize = true;
+            this.lblTotalRows.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRows.Location = new System.Drawing.Point(985, 585);
+            this.lblTotalRows.Name = "lblTotalRows";
+            this.lblTotalRows.Size = new System.Drawing.Size(15, 16);
+            this.lblTotalRows.TabIndex = 44;
+            this.lblTotalRows.Text = "0";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(903, 584);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(78, 16);
+            this.label16.TabIndex = 45;
+            this.label16.Text = "Total Rows : ";
+            // 
             // NewUserRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblTotalRows);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.hiddenUID);
             this.Controls.Add(this.dgRegisteredUser);
@@ -637,5 +652,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.Label lblTotalRows;
+        private System.Windows.Forms.Label label16;
     }
 }

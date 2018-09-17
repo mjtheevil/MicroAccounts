@@ -72,6 +72,8 @@ namespace MicroAccounts.UserControls
                 }
 
                 dgLedgerDetails.DataSource = modelList;
+
+                lblTotalRows.Text = modelList.Count.ToString();
             }
             catch (Exception x)
             {
@@ -136,6 +138,73 @@ namespace MicroAccounts.UserControls
             {
                 MessageBox.Show(x.ToString());
             }
+        }
+
+        private void txtLedgerName_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                int rowNo = 1;
+
+                dgLedgerDetails.AutoGenerateColumns = false;
+                _entities = new Data.MicroAccountsEntities1();
+
+                List<LedgerDetailsVM> ledgerDetailsListVM = new List<LedgerDetailsVM>();
+
+                List<tbl_LedgerDetails> data;
+
+                if (txtLedgerName.Text == "")
+                {
+                    data = _entities.tbl_LedgerDetails.ToList();
+                }
+                else
+                {
+                    data = _entities.tbl_LedgerDetails.Where(x=>x.tbl_AccLedger.ledgerName.Contains(txtLedgerName.Text.Trim().ToString())).ToList();
+
+                }
+
+                foreach (var item in data)
+                {
+                    LedgerDetailsVM list = new LedgerDetailsVM();
+                    list.rowNo = rowNo;
+                    list.id = item.ledgerId;
+                    list.ledgerName = _entities.tbl_AccLedger.Where(x => x.Id == item.ledgerId).FirstOrDefault().ledgerName;
+
+                    var grpId = _entities.tbl_AccLedger.Where(x => x.Id == item.ledgerId).FirstOrDefault().groupId;
+                    list.groupName = _entities.tbl_AccGroup.Where(x => x.groupId == grpId).FirstOrDefault().groupName.ToString();
+
+                    list.contact = item.contact;
+                    list.address = item.address;
+
+                    var drcr = _entities.tbl_AccLedger.Where(x => x.Id == item.ledgerId).FirstOrDefault().opBalanceDC;
+
+                    if (drcr == "D")
+                    {
+                        list.OpBalWithDC = "Dr " + _entities.tbl_AccLedger.Where(x => x.Id == item.ledgerId).FirstOrDefault().opBalance;
+                    }
+                    else
+                    {
+                        list.OpBalWithDC = "Cr " + _entities.tbl_AccLedger.Where(x => x.Id == item.ledgerId).FirstOrDefault().opBalance;
+
+                    }
+                    ledgerDetailsListVM.Add(list);
+                    rowNo++;
+                }
+
+                dgLedgerDetails.DataSource = ledgerDetailsListVM;
+
+                lblTotalRows.Text = ledgerDetailsListVM.Count.ToString();
+            }
+            catch (Exception x)
+            {
+
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtLedgerName.Text = "";
+            dataGridBind();
         }
     }
 }

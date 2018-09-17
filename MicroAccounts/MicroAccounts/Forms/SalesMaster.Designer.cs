@@ -34,6 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesMaster));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbKarat = new System.Windows.Forms.ComboBox();
+            this.txtQty = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.txtMaking = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.lblBtnError = new System.Windows.Forms.Label();
@@ -45,7 +48,6 @@
             this.txtTotalMaking = new System.Windows.Forms.TextBox();
             this.txtTotalKarat = new System.Windows.Forms.TextBox();
             this.txtRate = new System.Windows.Forms.TextBox();
-            this.txtKarat = new System.Windows.Forms.TextBox();
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.txtItemCode = new System.Windows.Forms.TextBox();
             this.txtBillNo = new System.Windows.Forms.TextBox();
@@ -56,6 +58,15 @@
             this.lblUnit = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dgSalesItem = new System.Windows.Forms.DataGridView();
+            this.SrNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
@@ -65,6 +76,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.lblMaking = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -82,17 +94,6 @@
             this.SidePanel2 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtQty = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.SrNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSalesItem)).BeginInit();
             this.panel3.SuspendLayout();
@@ -103,6 +104,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cmbKarat);
             this.panel1.Controls.Add(this.txtQty);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.txtMaking);
@@ -116,7 +118,6 @@
             this.panel1.Controls.Add(this.txtTotalMaking);
             this.panel1.Controls.Add(this.txtTotalKarat);
             this.panel1.Controls.Add(this.txtRate);
-            this.panel1.Controls.Add(this.txtKarat);
             this.panel1.Controls.Add(this.txtWeight);
             this.panel1.Controls.Add(this.txtItemCode);
             this.panel1.Controls.Add(this.txtBillNo);
@@ -136,6 +137,7 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.lblMaking);
+            this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label14);
@@ -154,6 +156,43 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(914, 647);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // cmbKarat
+            // 
+            this.cmbKarat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbKarat.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.cmbKarat.FormattingEnabled = true;
+            this.cmbKarat.Items.AddRange(new object[] {
+            "10",
+            "14",
+            "18",
+            "20",
+            "22",
+            "23",
+            "24"});
+            this.cmbKarat.Location = new System.Drawing.Point(551, 182);
+            this.cmbKarat.Name = "cmbKarat";
+            this.cmbKarat.Size = new System.Drawing.Size(91, 28);
+            this.cmbKarat.TabIndex = 7;
+            // 
+            // txtQty
+            // 
+            this.txtQty.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtQty.Location = new System.Drawing.Point(211, 183);
+            this.txtQty.Name = "txtQty";
+            this.txtQty.Size = new System.Drawing.Size(104, 26);
+            this.txtQty.TabIndex = 4;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.label18.Location = new System.Drawing.Point(207, 160);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(51, 20);
+            this.label18.TabIndex = 128;
+            this.label18.Text = "Qty. : ";
             // 
             // txtMaking
             // 
@@ -256,14 +295,6 @@
             this.txtRate.TabIndex = 9;
             this.txtRate.Leave += new System.EventHandler(this.txtRate_Leave);
             // 
-            // txtKarat
-            // 
-            this.txtKarat.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.txtKarat.Location = new System.Drawing.Point(547, 184);
-            this.txtKarat.Name = "txtKarat";
-            this.txtKarat.Size = new System.Drawing.Size(107, 26);
-            this.txtKarat.TabIndex = 7;
-            // 
             // txtWeight
             // 
             this.txtWeight.Font = new System.Drawing.Font("Century Gothic", 11.25F);
@@ -357,6 +388,8 @@
             this.dgSalesItem.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgSalesItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgSalesItem.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgSalesItem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -391,6 +424,77 @@
             this.dgSalesItem.TabIndex = 121;
             this.dgSalesItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSalesItem_CellContentClick);
             this.dgSalesItem.DoubleClick += new System.EventHandler(this.dgSalesItem_DoubleClick);
+            // 
+            // SrNo
+            // 
+            this.SrNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SrNo.DataPropertyName = "groupId";
+            this.SrNo.HeaderText = "SrNo";
+            this.SrNo.Name = "SrNo";
+            this.SrNo.ReadOnly = true;
+            this.SrNo.Visible = false;
+            this.SrNo.Width = 40;
+            // 
+            // GroupName
+            // 
+            this.GroupName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GroupName.HeaderText = "Item Code";
+            this.GroupName.Name = "GroupName";
+            this.GroupName.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "qty";
+            this.Column3.HeaderText = "Qty";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 60;
+            // 
+            // ParentName
+            // 
+            this.ParentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ParentName.HeaderText = "Weight";
+            this.ParentName.Name = "ParentName";
+            this.ParentName.ReadOnly = true;
+            this.ParentName.Width = 160;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Unit";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 50;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.HeaderText = "Karat";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.ReadOnly = true;
+            this.CreatedDate.Width = 120;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Making";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // UpdateDate
+            // 
+            this.UpdateDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UpdateDate.HeaderText = "Rate";
+            this.UpdateDate.Name = "UpdateDate";
+            this.UpdateDate.ReadOnly = true;
+            this.UpdateDate.Width = 120;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Delete.HeaderText = "Action";
+            this.Delete.Image = global::MicroAccounts.Properties.Resources.delete1;
+            this.Delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Width = 54;
             // 
             // cmbUnit
             // 
@@ -488,11 +592,21 @@
             this.lblMaking.TabIndex = 108;
             this.lblMaking.Text = "Making : ";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.label19.Location = new System.Drawing.Point(641, 190);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(18, 20);
+            this.label19.TabIndex = 108;
+            this.label19.Text = "K";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.label7.Location = new System.Drawing.Point(543, 161);
+            this.label7.Location = new System.Drawing.Point(546, 161);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 20);
             this.label7.TabIndex = 108;
@@ -659,95 +773,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // txtQty
-            // 
-            this.txtQty.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.txtQty.Location = new System.Drawing.Point(211, 183);
-            this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(104, 26);
-            this.txtQty.TabIndex = 4;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.label18.Location = new System.Drawing.Point(207, 160);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(51, 20);
-            this.label18.TabIndex = 128;
-            this.label18.Text = "Qty. : ";
-            // 
-            // SrNo
-            // 
-            this.SrNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SrNo.DataPropertyName = "groupId";
-            this.SrNo.HeaderText = "SrNo";
-            this.SrNo.Name = "SrNo";
-            this.SrNo.ReadOnly = true;
-            this.SrNo.Visible = false;
-            this.SrNo.Width = 40;
-            // 
-            // GroupName
-            // 
-            this.GroupName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GroupName.HeaderText = "Item Code";
-            this.GroupName.Name = "GroupName";
-            this.GroupName.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "qty";
-            this.Column3.HeaderText = "Qty";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 60;
-            // 
-            // ParentName
-            // 
-            this.ParentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ParentName.HeaderText = "Weight";
-            this.ParentName.Name = "ParentName";
-            this.ParentName.ReadOnly = true;
-            this.ParentName.Width = 160;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Unit";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 50;
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.HeaderText = "Karat";
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.ReadOnly = true;
-            this.CreatedDate.Width = 120;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Making";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // UpdateDate
-            // 
-            this.UpdateDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.UpdateDate.HeaderText = "Rate";
-            this.UpdateDate.Name = "UpdateDate";
-            this.UpdateDate.ReadOnly = true;
-            this.UpdateDate.Width = 120;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Delete.HeaderText = "Action";
-            this.Delete.Image = global::MicroAccounts.Properties.Resources.delete1;
-            this.Delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Width = 54;
-            // 
             // SalesMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -785,7 +810,6 @@
         private System.Windows.Forms.TextBox txtTotalMaking;
         private System.Windows.Forms.TextBox txtTotalKarat;
         private System.Windows.Forms.TextBox txtRate;
-        private System.Windows.Forms.TextBox txtKarat;
         private System.Windows.Forms.TextBox txtWeight;
         private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.TextBox txtBillNo;
@@ -833,5 +857,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdateDate;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.ComboBox cmbKarat;
+        private System.Windows.Forms.Label label19;
     }
 }

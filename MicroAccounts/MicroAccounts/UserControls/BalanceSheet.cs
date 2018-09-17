@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MicroAccounts.Data;
 using MicroAccounts.App_Code;
 using System.Collections;
+using MicroAccounts.AccountsModuleClasses;
 
 namespace MicroAccounts.UserControls
 {
@@ -17,7 +18,7 @@ namespace MicroAccounts.UserControls
     {
         MicroAccountsEntities1 acc;
         List<DummyList> dmList = new List<DummyList>();
-
+        AmtFormatting amtFormat = new AmtFormatting();
 
         Acc_list liabilities;
         Acc_list assets;

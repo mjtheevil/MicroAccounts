@@ -15,6 +15,7 @@ namespace MicroAccounts.Forms
     public partial class SalesMaster : Form
     {
         MicroAccountsEntities1 _entities;
+        AmtFormatting amtFormat = new AmtFormatting();
         int id = 1;
         int datagridId = 1;
         bool datagridEdit = false;   //Used When Double click on datagrid to edit 
@@ -33,7 +34,8 @@ namespace MicroAccounts.Forms
             txtBillNo.Text = "";
             txtLedgerName.Text = "";
             dateTimePicker1.Text = DateTime.Now.Date.ToString();
-            txtKarat.Text = "0.00";
+            //txtKarat.Text = "0.00";
+
             txtTotalRate.Text = "0.00";
             txtTotalWeight.Text = "0.00";
             txtTotalMaking.Text = "0.00";
@@ -78,11 +80,11 @@ namespace MicroAccounts.Forms
                     panel3.Visible = true;
                     lblError.Text = "Enter item weight.";
                 }
-                else if (txtKarat.Text == string.Empty)
+                else if (cmbKarat.SelectedIndex == -1 || cmbKarat.Text==string.Empty)
                 {
                     errorProvider1.Clear();
-                    errorProvider1.SetError(txtKarat, "Enter karat.");
-                    txtKarat.Focus();
+                    errorProvider1.SetError(cmbKarat, "Enter karat.");
+                    cmbKarat.Focus();
                     panel3.Visible = true;
                     lblError.Text = "Enter karat.";
                 }
@@ -108,7 +110,7 @@ namespace MicroAccounts.Forms
                 {
                     errorProvider1.Clear();
 
-                    if (txtItemCode.Text != string.Empty && txtQty.Text != string.Empty && txtWeight.Text != string.Empty && txtKarat.Text != string.Empty && txtMaking.Text != string.Empty && txtRate.Text != string.Empty)
+                    if (txtItemCode.Text != string.Empty && txtQty.Text != string.Empty && txtWeight.Text != string.Empty && cmbKarat.Text != string.Empty && txtMaking.Text != string.Empty && txtRate.Text != string.Empty)
                     {
                         if (datagridEdit)
                         {
@@ -117,7 +119,7 @@ namespace MicroAccounts.Forms
                             dgSalesItem.Rows[datagridId].Cells[2].Value = txtQty.Text;
                             dgSalesItem.Rows[datagridId].Cells[3].Value = txtWeight.Text;
                             dgSalesItem.Rows[datagridId].Cells[4].Value = cmbUnit.Text;
-                            dgSalesItem.Rows[datagridId].Cells[5].Value = txtKarat.Text;
+                            dgSalesItem.Rows[datagridId].Cells[5].Value =cmbKarat.Text;
                             dgSalesItem.Rows[datagridId].Cells[6].Value = txtMaking.Text;
                             dgSalesItem.Rows[datagridId].Cells[7].Value = txtRate.Text;
 
@@ -132,12 +134,12 @@ namespace MicroAccounts.Forms
                         }
                         else
                         {
-                            dgSalesItem.Rows.Add(id.ToString(), txtItemCode.Text,txtQty.Text, txtWeight.Text, cmbUnit.Text, txtKarat.Text, txtMaking.Text, txtRate.Text);
+                            dgSalesItem.Rows.Add(id.ToString(), txtItemCode.Text,txtQty.Text, txtWeight.Text, cmbUnit.Text, cmbKarat.Text, txtMaking.Text, txtRate.Text);
                             id = id + 1;
                         }
 
                         ttlMaking += Convert.ToDecimal(txtMaking.Text);
-                        ttlKarat += Convert.ToDecimal(txtKarat.Text);
+                        ttlKarat += Convert.ToDecimal(cmbKarat.Text);
 
                         if (cmbUnit.Text == "Kg")
                         {
@@ -166,8 +168,8 @@ namespace MicroAccounts.Forms
                         txtTotalWeight.Text = ttlWeight.ToString();
                         lblUnit.Text = "Gram";
                     }
-                    txtTotalRate.Text = ttlRate.ToString();
-
+                    txtTotalRate.Text =amtFormat.comma(ttlRate).ToString();
+                     
 
                     clearDetails();
                     txtItemCode.Focus();
@@ -186,8 +188,7 @@ namespace MicroAccounts.Forms
         }
 
         private void btnClear_Click(object sender, EventArgs e)
-        {
-
+        { 
             clear();
             clearDetails();
         }
@@ -222,7 +223,7 @@ namespace MicroAccounts.Forms
 
                             txtTotalMaking.Text = ttlMaking.ToString();
                             txtTotalKarat.Text = ttlKarat.ToString();
-                            txtTotalRate.Text = ttlRate.ToString();
+                            txtTotalRate.Text =amtFormat.comma( ttlRate).ToString();
                             double kg = Convert.ToDouble(ttlWeight) / 1000;
                             if (kg > 0)
                             {
@@ -265,7 +266,7 @@ namespace MicroAccounts.Forms
                     txtQty.Text = dgSalesItem.CurrentRow.Cells[2].Value.ToString();
                     txtWeight.Text = dgSalesItem.CurrentRow.Cells[3].Value.ToString();
                     cmbUnit.Text = dgSalesItem.CurrentRow.Cells[4].Value.ToString();
-                    txtKarat.Text = dgSalesItem.CurrentRow.Cells[5].Value.ToString();
+                    cmbKarat.Text = dgSalesItem.CurrentRow.Cells[5].Value.ToString();
                     txtMaking.Text = dgSalesItem.CurrentRow.Cells[6].Value.ToString();
                     txtRate.Text = dgSalesItem.CurrentRow.Cells[7].Value.ToString();
                     //id = 1;
@@ -274,7 +275,7 @@ namespace MicroAccounts.Forms
                     //ttlMelting = Convert.ToDecimal(txtTotalMelting.Text);
 
                     ttlWeight = ttlWeight - Convert.ToDecimal(txtWeight.Text);
-                    ttlKarat = ttlKarat - Convert.ToDecimal(txtKarat.Text);
+                    ttlKarat = ttlKarat - Convert.ToDecimal(cmbKarat.Text);
                     ttlMaking = ttlMaking - Convert.ToDecimal(txtMaking.Text);
                     ttlRate = ttlRate - Convert.ToDecimal(txtRate.Text);
 
@@ -361,12 +362,11 @@ namespace MicroAccounts.Forms
                     panel3.Visible = true;
                     lblError.Text = "Enter total weight.";
                 }
-                else if (txtKarat.Text == string.Empty)
-                {
-
+                else if (cmbKarat.SelectedIndex == -1)
+                { 
                     errorProvider1.Clear();
-                    errorProvider1.SetError(txtKarat, "Enter total karat.");
-                    txtKarat.Focus();
+                    errorProvider1.SetError(cmbKarat, "Enter total karat.");
+                    cmbKarat.Focus();
                     panel3.Visible = true;
                     lblError.Text = "Enter total karat.";
                 }
@@ -482,9 +482,15 @@ namespace MicroAccounts.Forms
             txtWeight.Text = "0.00";
             txtRate.Text = "0.00";
             cmbUnit.SelectedIndex = 0;
-            txtKarat.Text = "0.00";
+            //txtKarat.Text = "0.00";
             txtMaking.Text = "0.00";
             txtRate.Text = "0.00";
+            cmbKarat.SelectedIndex = 0;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void txtLedgerName_Leave(object sender, EventArgs e)

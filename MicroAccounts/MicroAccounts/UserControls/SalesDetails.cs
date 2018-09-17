@@ -10,6 +10,7 @@ using MicroAccounts.Forms;
 using MicroAccounts.Data;
 using MicroAccounts.ViewModel;
 using System.Windows.Forms;
+using MicroAccounts.AccountsModuleClasses;
 
 namespace MicroAccounts.UserControls
 {
@@ -17,6 +18,7 @@ namespace MicroAccounts.UserControls
     public partial class SalesDetails : UserControl
     {
         MicroAccountsEntities1 _entities;
+        AmtFormatting amtFormat = new AmtFormatting();
         public SalesDetails()
         {
             InitializeComponent();
@@ -83,7 +85,7 @@ namespace MicroAccounts.UserControls
                     model.ledgerName = _entities.tbl_AccLedger.Where(x => x.Id == item.ledgerId).FirstOrDefault().ledgerName;
                     model.date = model.date = Convert.ToDateTime(item.date).ToString("dd-MM-yyyy"); ;
                     model.totalWeight = item.totalWeight;
-                    model.totalAmt = item.totalAmt;
+                    model.totalAmt = Convert.ToDecimal(amtFormat.comma(item.totalAmt));
 
                     model.createdDate = Convert.ToDateTime(item.createdDate).ToString("dd-MM-yyyy  hh:mm tt");
                     model.updateDate = Convert.ToDateTime(item.updateDate).ToString("dd-MM-yyyy  hh:mm tt");
@@ -95,6 +97,7 @@ namespace MicroAccounts.UserControls
                 }
 
                 dgSalesDetails.DataSource = modelList;
+                lblTotalRows.Text = modelList.Count.ToString();
             }
             catch (Exception x)
             {
@@ -159,9 +162,9 @@ namespace MicroAccounts.UserControls
 
                 List<SalesMasterVM> modelList = new List<SalesMasterVM>();
 
-               var data = _entities.tbl_SalesMaster.Where(x => x.billNo.Contains(txtSearch.Text) || x.tbl_AccLedger.ledgerName.Contains(txtSearch.Text)).OrderByDescending(x => x.sId);
+                var data = _entities.tbl_SalesMaster.Where(x => x.billNo.Contains(txtSearch.Text) || x.tbl_AccLedger.ledgerName.Contains(txtSearch.Text)).OrderByDescending(x => x.sId);
 
-                 foreach (var item in data)
+                foreach (var item in data)
                 {
                     SalesMasterVM model = new SalesMasterVM();
                     model.rowNo = rowNo;
@@ -170,7 +173,7 @@ namespace MicroAccounts.UserControls
                     model.ledgerName = _entities.tbl_AccLedger.Where(x => x.Id == item.ledgerId).FirstOrDefault().ledgerName;
                     model.date = Convert.ToDateTime(item.date).ToString("dd-MM-yyyy");
                     model.totalWeight = item.totalWeight;
-                    model.totalAmt = item.totalAmt;
+                    model.totalAmt = Convert.ToDecimal(amtFormat.comma(item.totalAmt));
 
                     model.createdDate = Convert.ToDateTime(item.createdDate).ToString("dd-MM-yyyy  hh:mm tt");
                     model.updateDate = Convert.ToDateTime(item.updateDate).ToString("dd-MM-yyyy  hh:mm tt");
@@ -182,18 +185,19 @@ namespace MicroAccounts.UserControls
                 }
 
                 dgSalesDetails.DataSource = modelList;
+                lblTotalRows.Text = modelList.Count.ToString();
             }
             catch (Exception x)
             {
                 MessageBox.Show(x.ToString());
             }
 
-            
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-          
+
             dateTimePicker1.Text = DateTime.Now.Date.ToString();
             dateTimePicker2.Text = DateTime.Now.Date.ToString();
             txtSearch.Text = "";
@@ -229,7 +233,7 @@ namespace MicroAccounts.UserControls
                         model.ledgerName = _entities.tbl_AccLedger.Where(x => x.Id == item.ledgerId).FirstOrDefault().ledgerName;
                         model.date = Convert.ToDateTime(item.date).ToString("dd-MM-yyyy");
                         model.totalWeight = item.totalWeight;
-                        model.totalAmt = item.totalAmt;
+                        model.totalAmt = Convert.ToDecimal(amtFormat.comma(item.totalAmt));
 
                         model.createdDate = Convert.ToDateTime(item.createdDate).ToString("dd-MM-yyyy  hh:mm tt");
                         model.updateDate = Convert.ToDateTime(item.updateDate).ToString("dd-MM-yyyy  hh:mm tt");
@@ -241,6 +245,7 @@ namespace MicroAccounts.UserControls
                     }
 
                     dgSalesDetails.DataSource = modelList;
+                    lblTotalRows.Text = modelList.Count.ToString();
                 }
             }
             catch (Exception x)

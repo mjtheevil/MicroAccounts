@@ -293,7 +293,7 @@ namespace MicroAccounts.UserControls
             }
 
             dgRegisteredUser.DataSource = modelList;
-           
+            lblTotalRows.Text = modelList.Count.ToString();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

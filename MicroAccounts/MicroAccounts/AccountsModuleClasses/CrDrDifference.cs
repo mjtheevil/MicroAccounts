@@ -25,21 +25,32 @@ namespace MicroAccounts.AccountsModuleClasses
                 crTotal += item.crAmt;
             }
 
-          //  if (passedVoucherType == 1)   //For Payment
+            if (drTotal > crTotal)
                 crdrDiff = drTotal - crTotal;
+            else
+                crdrDiff = crTotal - drTotal;
 
-           // else if (passedVoucherType == 2) // For Receipt
-            //    crdrDiff = crTotal - drTotal;
+            //if (crdrDiff < 0)
+            //{
+            //    string cr = crdrDiff.ToString();
 
+            //    return ("Cr " + cr.Substring(1));
+            //}
+            //else if (crdrDiff > 0)
+            //    return ("Dr " + crdrDiff);
+            //else
+            //    return ("0.00");
 
-            if (crdrDiff < 0)
+            if (crTotal > drTotal)
             {
-                string cr = crdrDiff.ToString();
-
-                return ("Cr " + cr.Substring(1));
+                crdrDiff = crTotal - drTotal;
+                return ("Cr " + crdrDiff);
             }
-            else if (crdrDiff > 0)
+            else if (drTotal > crTotal)
+            {
+                crdrDiff = drTotal - crTotal;
                 return ("Dr " + crdrDiff);
+            }
             else
                 return ("0.00");
         }

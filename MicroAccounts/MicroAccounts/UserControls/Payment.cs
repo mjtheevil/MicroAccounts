@@ -410,14 +410,14 @@ namespace MicroAccounts.UserControls
                     var crLedger = _entities.tbl_AccLedger.Where(x => x.Id == item.crId).FirstOrDefault().ledgerName.ToString();
 
                     model.drcrLedger = "Dr. " + drLedger + " / " + "Cr. " + crLedger;
-                    model.amt = item.amt;
+                    model.amt =Convert.ToDecimal( amtFormat.comma( item.amt));
                     model.date = item.date;
                     modelList.Add(model);
                     rowNo++;
                 }
 
                 dgPaymentDetails.DataSource = modelList;
-
+                lblTotalRows.Text = modelList.Count.ToString();
                 #endregion  
             }
 
@@ -711,7 +711,7 @@ namespace MicroAccounts.UserControls
 
             }
         }
-
+        AmtFormatting amtFormat = new AmtFormatting();
         private void dgPaymentDetails_DoubleClick(object sender, EventArgs e)
         {
             if (dgPaymentDetails.CurrentRow.Index != -1)
@@ -728,7 +728,7 @@ namespace MicroAccounts.UserControls
 
                 updateVouId = data.voucherRefNo;
 
-                txtAmt.Text = data.amt.ToString();
+                txtAmt.Text =amtFormat.comma( data.amt).ToString();
                 txtRemark.Text = data.remarks;
 
                 btnCreate.Text = "Update";
